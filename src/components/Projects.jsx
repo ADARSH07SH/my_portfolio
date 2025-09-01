@@ -1,6 +1,21 @@
 "use client";
 
+import { useEffect, useRef } from "react";
+
 const Projects = ({ items }) => {
+  const videoRefs = useRef([]);
+
+  useEffect(() => {
+    // Auto-play all videos on mobile
+    videoRefs.current.forEach((video) => {
+      if (video) {
+        video.play().catch(() => {
+          // Autoplay might fail if user interaction is required
+        });
+      }
+    });
+  }, []);
+
   return (
     <div className="grid md:grid-cols-2 gap-8">
       {items.map((project, index) => (
@@ -16,9 +31,12 @@ const Projects = ({ items }) => {
             className="video-container h-48 block bg-black/5 dark:bg-white/5 transition-colors cursor-pointer"
           >
             <video
+              ref={(el) => (videoRefs.current[index] = el)}
               className="w-full h-full object-cover"
               muted
               loop
+              autoPlay
+              playsInline
               poster={project.poster}
               onMouseEnter={(e) => e.target.play()}
               onMouseLeave={(e) => {

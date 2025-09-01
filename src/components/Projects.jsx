@@ -6,12 +6,20 @@ const Projects = ({ items }) => {
   const videoRefs = useRef([]);
 
   useEffect(() => {
-    // Auto-play all videos on mobile
+    // Play a short snippet (0.5s) for each video on mount
     videoRefs.current.forEach((video) => {
       if (video) {
-        video.play().catch(() => {
-          // Autoplay might fail if user interaction is required
-        });
+        video
+          .play()
+          .then(() => {
+            setTimeout(() => {
+              video.pause();
+              video.currentTime = 0; // Reset to first frame
+            }, 500); // Play for 500ms
+          })
+          .catch(() => {
+            // Autoplay might fail if user interaction is required
+          });
       }
     });
   }, []);
@@ -35,7 +43,6 @@ const Projects = ({ items }) => {
               className="w-full h-full object-cover"
               muted
               loop
-              autoPlay
               playsInline
               poster={project.poster}
               onMouseEnter={(e) => e.target.play()}

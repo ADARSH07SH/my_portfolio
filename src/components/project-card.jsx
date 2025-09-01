@@ -5,19 +5,20 @@ import { Github, ExternalLink } from "lucide-react";
 
 export default function ProjectCard({ project }) {
   const videoRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
 
   const handleMouseEnter = () => {
+    setIsHovering(true);
     if (videoRef.current) {
       videoRef.current.play().catch(() => {});
-      setIsPlaying(true);
     }
   };
+
   const handleMouseLeave = () => {
+    setIsHovering(false);
     if (videoRef.current) {
       videoRef.current.pause();
       videoRef.current.currentTime = 0;
-      setIsPlaying(false);
     }
   };
 
@@ -39,17 +40,20 @@ export default function ProjectCard({ project }) {
           muted
           loop
           playsInline
+          preload="metadata"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 flex items-center justify-center">
-          {!isPlaying && (
+        {/* Overlay only shows when not playing */}
+        {!isHovering && (
+          <div className="absolute inset-0 flex items-center justify-center">
             <span className="text-xs tracking-wide rounded-full bg-black/20 dark:bg-white/20 backdrop-blur px-3 py-1 text-white border border-white/20 transition-colors">
               Hover to play
             </span>
-          )}
-        </div>
+          </div>
+        )}
       </a>
 
+      {/* Content */}
       <div className="p-5 flex flex-col flex-grow">
         <h3 className="text-lg font-semibold mb-2 text-black dark:text-white transition-colors">
           {project.title}

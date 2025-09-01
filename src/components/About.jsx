@@ -24,13 +24,18 @@ const About = () => {
         </h2>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Profile Image */}
-          <div>
-            <img
-              src={personalInfo.about.image}
-              alt={`${personalInfo.name} - Backend Developer`}
-              className="w-full h-96 object-cover rounded-lg border-2 border-black/20 dark:border-yellow-400 transition-colors duration-300"
+          {/* Video Background */}
+          <div className="relative w-full h-96 rounded-lg overflow-hidden border-2 border-black/20 dark:border-yellow-400 transition-colors duration-300">
+            <video
+              src="/about.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
             />
+            {/* Optional overlay for better readability */}
+            <div className="absolute inset-0 bg-black/20 dark:bg-black/40"></div>
           </div>
 
           {/* Description */}

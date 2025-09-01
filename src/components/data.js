@@ -5,7 +5,7 @@ export const personalInfo = {
   location: "Bengaluru",
   resumeUrl: "/resume.pdf",
   about: {
-    image: "/about.jpg?height=400&width=400",
+    image: "/about.mp3",
     description: [
       "Aspiring Software Engineer focused on backend development, skilled in Java and full-stack technologies.",
       "Currently building scalable backend systems and mobile applications aligned with enterprise-level architectures.",
@@ -14,7 +14,7 @@ export const personalInfo = {
     ],
   },
   hero: {
-    image: "/profile.jpg?height=200&width=200",
+    image: "/profile.png",
     title: "Backend Developer & Full-Stack Enthusiast",
     description:
       "Experienced in Java and full-stack development, currently focused on building scalable backend systems and mobile applications aligned with enterprise-level technologies. Passionate about creating efficient, maintainable, and robust software solutions.",

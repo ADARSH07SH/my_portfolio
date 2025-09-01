@@ -23,7 +23,11 @@ export default function ProjectCard({ project }) {
 
   return (
     <div className="bg-white dark:bg-black border border-black/10 dark:border-white/10 rounded-lg overflow-hidden hover:dark:border-yellow-500 transition-all h-full flex flex-col">
-      <div
+      {/* Video clickable area */}
+      <a
+        href={project.demo}
+        target="_blank"
+        rel="noopener noreferrer"
         className="relative h-48 overflow-hidden cursor-pointer bg-black/5 dark:bg-white/5 transition-colors"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -44,7 +48,7 @@ export default function ProjectCard({ project }) {
             </span>
           )}
         </div>
-      </div>
+      </a>
 
       <div className="p-5 flex flex-col flex-grow">
         <h3 className="text-lg font-semibold mb-2 text-black dark:text-white transition-colors">

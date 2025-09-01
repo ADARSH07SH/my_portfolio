@@ -28,59 +28,90 @@ export const personalInfo = {
 export const projectsData = [
   {
     id: 1,
-    title: "E-Commerce Platform",
-    description: "A full-stack e-commerce platform with React and Node.js.",
-    tags: ["React", "Node.js", "MongoDB", "Express"],
+    title: "Metaverse Office",
+    description: "Realtime multiplayer gamified office website.",
+    tags: ["Socket.io", "WebRTC", "Phaser", "Express", "EJS", "MongoDB"],
     category: "Web App",
-    video: "/videos/p1.mp4",
-    poster: "/placeholder.svg?height=300&width=400&text=E-Commerce+Demo",
-    demo: "#",
-    github: "#",
+    video: "/videos/p1.mp4", // Add video URL if available
+    poster: "/placeholder.svg?height=300&width=400&text=Metaverse+Office",
+    demo: "https://metaverse-game.onrender.com/", // Add live demo URL
+    github: "#", // Add GitHub repo link
   },
   {
     id: 2,
-    title: "Task Management App",
-    description: "Task management with authentication and live updates.",
-    tags: ["React", "Firebase", "Tailwind CSS"],
-    category: "Web App",
+    title: "Stock Portfolio Manager App",
+    description: "Built a React Native app to track personal stock portfolios.",
+    tags: [
+      "React Native",
+      "JavaScript",
+      "Node.js",
+      "MongoDB",
+      "Express",
+      "Chart.js",
+      "FYERS API",
+    ],
+    category: "Mobile App",
     video: "/videos/p2.mp4",
-    poster: "/placeholder.svg?height=300&width=400&text=Task+Manager+Demo",
-    demo: "#",
+    poster:
+      "/placeholder.svg?height=300&width=400&text=Stock+Portfolio+Manager",
+    demo: "https://drive.google.com/drive/u/1/folders/1RON93MkCIGoyr2UbbgMNRYOmmKNT7sNa",
     github: "#",
   },
   {
     id: 3,
-    title: "Weather Dashboard",
-    description: "Current and forecasted weather with charts.",
-    tags: ["React", "API", "Chart.js"],
-    category: "Dashboard",
+    title: "Cyber-Safe 🏆", // Hackathon winner
+    description:
+      "Winner – Codefury 8.0 hackathon (2025). Developed an AI-powered cybersecurity game platform with interactive learning and real-time scam detection.",
+    tags: ["AI", "Game Development", "JavaScript", "React", "Node.js"],
+    category: "Hackathon",
     video: "/videos/p3.mp4",
-    poster: "/placeholder.svg?height=300&width=400&text=Weather+Dashboard",
-    demo: "#",
+    poster: "/placeholder.svg?height=300&width=400&text=Cyber-Safe",
+    demo: "https://hackathon-cyberquest.onrender.com/",
     github: "#",
   },
   {
     id: 4,
-    title: "CLI Utility",
-    description: "A developer CLI tool to scaffold projects quickly.",
-    tags: ["Node.js", "CLI"],
-    category: "Tool",
+    title: "KCET College Predictor",
+    description:
+      "Implemented an algorithm that matches KCET rank to available colleges and courses based on previous years' cutoff data.",
+    tags: ["EJS", "JavaScript", "Figma", "SQL"],
+    category: "Web App",
     video: "/videos/p4.mp4",
-    poster: "/placeholder.svg?height=300&width=400&text=CLI+Tool+Demo",
-    demo: "#",
+    poster: "/placeholder.svg?height=300&width=400&text=KCET+Predictor",
+    demo: "https://kcet-college-predictor.vercel.app/",
+    github: "#",
+  },
+  {
+    id: 5,
+    title: "Eco-Drobe 🥈", // Hackathon semifinalist
+    description:
+      "Hackathon Participant – Bit ‘N’ Build Hackathon (2024). Developed a website to manage the user’s wardrobe as part of a team. Silver semifinalist.",
+    tags: ["HTML", "CSS", "JavaScript"],
+    category: "Hackathon",
+    video: "/videos/p5.mp4",
+    poster: "/placeholder.svg?height=300&width=400&text=Eco-Drobe",
+    demo: "https://bit-and-build-nine.vercel.app/",
     github: "#",
   },
 ];
 
+
+
 export const technologies = [
   { name: "React", category: "Frontend" },
+  { name: "React Native", category: "Frontend" },
   { name: "JavaScript", category: "Language" },
+  { name: "Java", category: "Language" },
+  { name: "C++", category: "Language" },
   { name: "Node.js", category: "Backend" },
   { name: "Express", category: "Backend" },
+  { name: "Spring Boot", category: "Backend" },
   { name: "MongoDB", category: "Database" },
-  { name: "Tailwind CSS", category: "Styling" },
+  { name: "SQL", category: "Database" },
   { name: "Git", category: "Tools" },
-  { name: "Python", category: "Language" },
+  { name: "GitHub", category: "Tools" },
+  { name: "Postman", category: "Tools" },
+  { name: "AWS ", category: "Cloud" },
 ];
 
 export const navLinks = [

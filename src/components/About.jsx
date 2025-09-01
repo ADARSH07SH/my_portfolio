@@ -1,4 +1,5 @@
 import { personalInfo } from "./data";
+import { Helmet } from "react-helmet";
 
 const About = () => {
   return (
@@ -6,23 +7,33 @@ const About = () => {
       id="about"
       className="py-20 px-4 bg-white dark:bg-black transition-colors duration-300"
     >
+      {/* SEO Meta */}
+      <Helmet>
+        <meta
+          name="description"
+          content={`About ${personalInfo.name}, Backend Developer & Full-Stack Enthusiast. Learn about skills, experience, and projects.`}
+        />
+      </Helmet>
+
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
           About{" "}
-          <span className="text-black-800 dark:text-yellow-400 transition-colors duration-300">
+          <span className="text-black dark:text-yellow-400 transition-colors duration-300">
             Me
           </span>
         </h2>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Profile Image */}
           <div>
             <img
               src={personalInfo.about.image}
-              alt="About Adarsh"
-              className="w-full h-96 object-cover rounded-lg border-2 border-black-800 dark:border-yellow-400 transition-colors duration-300"
+              alt={`${personalInfo.name} - Backend Developer`}
+              className="w-full h-96 object-cover rounded-lg border-2 border-black/20 dark:border-yellow-400 transition-colors duration-300"
             />
           </div>
 
+          {/* Description */}
           <div className="space-y-6">
             {personalInfo.about.description.map((paragraph, index) => (
               <p
@@ -33,6 +44,7 @@ const About = () => {
               </p>
             ))}
 
+            {/* Resume Download */}
             <div className="pt-4">
               <a
                 href={personalInfo.resumeUrl}

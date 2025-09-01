@@ -21,7 +21,7 @@ export const personalInfo = {
   },
   socialLinks: {
     github: "https://github.com/ADARSH07SH",
-    linkedin: "www.linkedin.com/in/adarsh-sh-582891297",
+    linkedin: "https://www.linkedin.com/in/adarsh-sh-582891297/",
   },
 };
 

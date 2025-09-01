@@ -1,37 +1,55 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Github, ExternalLink } from "lucide-react";
 
 export default function ProjectCard({ project }) {
   const videoRef = useRef(null);
-  const [isHovering, setIsHovering] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Detect mobile device
+    const checkMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    setIsMobile(checkMobile);
+  }, []);
+
+  const handlePlayToggle = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+        videoRef.current.currentTime = 0;
+        setIsPlaying(false);
+      } else {
+        videoRef.current.play().catch(() => {});
+        setIsPlaying(true);
+      }
+    }
+  };
 
   const handleMouseEnter = () => {
-    setIsHovering(true);
-    if (videoRef.current) {
+    if (!isMobile && videoRef.current) {
       videoRef.current.play().catch(() => {});
+      setIsPlaying(true);
     }
   };
 
   const handleMouseLeave = () => {
-    setIsHovering(false);
-    if (videoRef.current) {
+    if (!isMobile && videoRef.current) {
       videoRef.current.pause();
       videoRef.current.currentTime = 0;
+      setIsPlaying(false);
     }
   };
 
   return (
     <div className="bg-white dark:bg-black border border-black/10 dark:border-white/10 rounded-lg overflow-hidden hover:dark:border-yellow-500 transition-all h-full flex flex-col">
       {/* Video clickable area */}
-      <a
-        href={project.demo}
-        target="_blank"
-        rel="noopener noreferrer"
+      <div
         className="relative h-48 overflow-hidden cursor-pointer bg-black/5 dark:bg-white/5 transition-colors"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        onClick={handlePlayToggle} // Tap to play on mobile
       >
         <video
           ref={videoRef}
@@ -43,15 +61,14 @@ export default function ProjectCard({ project }) {
           preload="metadata"
           className="w-full h-full object-cover"
         />
-        {/* Overlay only shows when not playing */}
-        {!isHovering && (
+        {!isPlaying && (
           <div className="absolute inset-0 flex items-center justify-center">
             <span className="text-xs tracking-wide rounded-full bg-black/20 dark:bg-white/20 backdrop-blur px-3 py-1 text-white border border-white/20 transition-colors">
-              Hover to play
+              {isMobile ? "Tap to play" : "Hover to play"}
             </span>
           </div>
         )}
-      </a>
+      </div>
 
       {/* Content */}
       <div className="p-5 flex flex-col flex-grow">

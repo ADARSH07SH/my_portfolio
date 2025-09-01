@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Updated body to use theme-aware classes instead of fixed dark colors */
+body {
+  @apply transition-colors duration-300;
+}
+
+/* Accent (yellow only) */
+:root {
+  --yellow: #facc15; /* tailwind yellow-400 */
+  --yellow-500: #eab308;
+}
+
+/* Titles with subtle yellow gradient */
+.gradient-text {
+  background: linear-gradient(90deg, #ffd700, #ffcc00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Typewriter caret */
+.typewriter {
+  overflow: hidden;
+  border-right: 0.12em solid #ffd700;
+  white-space: nowrap;
+  letter-spacing: 0.03em;
+  animation: blink-caret 0.8s step-end infinite;
+}
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #ffd700;
+  }
+}
+
+/* Layout helpers */
+.container {
+  @apply max-w-5xl mx-auto px-4;
+}
+.section {
+  @apply py-16 md:py-24;
+}
+
+/* Buttons (yellow accents only) */
+.btn {
+  @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors;
+}
+.btn-primary {
+  @apply bg-yellow-400 text-black hover:bg-yellow-500;
+}
+.btn-outline {
+  @apply border border-yellow-400 text-yellow-400 hover:bg-yellow-400/10;
+}
+
+/* Removed fixed dark card styles - now handled by theme-aware classes in components */
+
+/* Links */
+a {
+  @apply hover:text-yellow-400 transition-colors;
+}
+
+/* Updated scrollbar to be theme-aware */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-white dark:bg-black;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--yellow);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--yellow-500);
+}
+
+/* Added theme transition for smooth switching */
+* {
+  transition-property: background-color, border-color, color;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+}
